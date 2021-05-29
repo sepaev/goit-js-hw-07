@@ -9,12 +9,12 @@ const ingredients = [
 ];
 
 const list = document.querySelector('ul#ingredients');
-const publishList = () => {
-    ingredients.forEach(ingridient => {
+const publishList = (array) => {
+    array.forEach(ingridient => {
         list.insertAdjacentHTML('beforeend', `<li>${ingridient}</li>`);
     });
     
 };
 
 
-document.querySelector('#mainButton').onclick = publishList;
+document.querySelector('#mainButton').onclick = () => publishList(ingredients);
