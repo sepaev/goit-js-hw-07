@@ -17,20 +17,18 @@ const images = [
 const button = document.querySelector('.createButton');
 const targetTag = document.querySelector('ul#gallery');
 
-const createImages = () => {
+button.addEventListener('click', createImages);
+
+function createImages() {
   images.forEach(({ url, alt }) => {
-    const image = document.createElement('img');
+    const htmlString = `<li style="list-style: none;"><img src="${url}" width="100%" alt="${alt}"></li>`;
 
-    image.setAttribute('src', url);
-    image.setAttribute('width', '30%');
-    image.setAttribute('alt', alt);
-
-    targetTag.insertAdjacentElement('beforeend', image);
-    console.log(image);
+    targetTag.insertAdjacentHTML('beforeend', htmlString);
   });
+  targetTag.style.display = 'flex';
 };
 
-button.addEventListener('click', createImages);
+
 
 // Напиши скрипт для создания галереи изображений по массиву данных.
 // В HTML есть список ul#gallery.
