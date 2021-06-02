@@ -20,12 +20,11 @@ const targetTag = document.querySelector('ul#gallery');
 button.addEventListener('click', createImages);
 
 function createImages() {
-  images.forEach(({ url, alt }) => {
-    const htmlString = `<li style="list-style: none;"><img src="${url}" width="100%" alt="${alt}"></li>`;
-
-    targetTag.insertAdjacentHTML('beforeend', htmlString);
-  });
+  let htmlString = '';
+  images.forEach(({ url, alt }) => htmlString += `<li style="list-style: none; width:25%"><img src="${url}" width="100%" alt="${alt}"></li>`);
+  targetTag.insertAdjacentHTML('beforeend', htmlString);
   targetTag.style.display = 'flex';
+  targetTag.style.flexWrap = 'wrap';
 };
 
 

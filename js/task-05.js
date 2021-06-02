@@ -7,15 +7,19 @@ const refs = {
 refs.nameInput.addEventListener('input', onInput);
 
 function onInput() {
-    const text = (refs.nameInput.value === "") ? 'незнакомец' : refs.nameInput.value;
-    const textArray = text.split(' ');
-    let fixedTextArray = [];
-    textArray.forEach(element => {
-        if (element !== "") {
-            fixedTextArray.push(element);
-        }
-    });
-    const returnText = fixedTextArray.join(' ');
-    refs.nameSpan.textContent = returnText===""? 'незнакомец' : returnText;
+    const valueInput = refs.nameInput.value
+    
+    refs.nameSpan.textContent = (valueInput === "" || valueInput[0] === " ") ? 'незнакомец' : valueInput;
+    
+    // const text = (valueInput === "") ? 'незнакомец' : valueInput;
+    // const textArray = text.split(' ');
+    // let fixedTextArray = [];
+    // textArray.forEach(element => {
+    //     if (element !== "") {
+    //         fixedTextArray.push(element);
+    //     }
+    // });
+    // const returnText = fixedTextArray.join(' ');
+    // refs.nameSpan.textContent = returnText===""? 'незнакомец' : returnText;
  
 }

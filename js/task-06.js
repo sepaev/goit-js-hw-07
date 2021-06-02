@@ -2,15 +2,15 @@
 const targetInput = document.querySelector('input#validation-input');
 
 targetInput.addEventListener('blur', onCheck);
+function validation(isValid) {
+    return isValid ? { toAdd: 'valid', toRemove: 'invalid' }:{ toAdd: 'invalid', toRemove: 'valid' }
+}
 
 function onCheck() {
-    if (targetInput.value.length < targetInput.getAttribute('data-length')) {
-        targetInput.classList.add('invalid');
-        targetInput.classList.remove('valid');
-    } else {
-        targetInput.classList.add('valid');
-        targetInput.classList.remove('invalid');
-    }
+    const actions = validation(targetInput.value.length >= targetInput.getAttribute('data-length'));
+
+    targetInput.classList.add(actions.toAdd);
+    targetInput.classList.remove(actions.toRemove);
 }
 
 // •	Сколько символов должно быть в инпуте, указывается в его атрибуте data-length.

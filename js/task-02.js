@@ -10,10 +10,9 @@ const ingredients = [
 
 const list = document.querySelector('ul#ingredients');
 const publishList = (array) => {
-    array.forEach(ingridient => {
-        list.insertAdjacentHTML('beforeend', `<li>${ingridient}</li>`);
-    });
-    
+  let text = "";
+  array.forEach(ingridient => text += `<li>${ingridient}</li>`);
+  list.insertAdjacentHTML('beforeend', text);
 };
 
 
