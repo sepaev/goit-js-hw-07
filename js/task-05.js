@@ -7,19 +7,8 @@ const refs = {
 refs.nameInput.addEventListener('input', onInput);
 
 function onInput() {
-    const valueInput = refs.nameInput.value
+    const valueInput = refs.nameInput.value.trim()
     
-    refs.nameSpan.textContent = (valueInput === "" || valueInput[0] === " ") ? 'незнакомец' : valueInput;
-    
-    // const text = (valueInput === "") ? 'незнакомец' : valueInput;
-    // const textArray = text.split(' ');
-    // let fixedTextArray = [];
-    // textArray.forEach(element => {
-    //     if (element !== "") {
-    //         fixedTextArray.push(element);
-    //     }
-    // });
-    // const returnText = fixedTextArray.join(' ');
-    // refs.nameSpan.textContent = returnText===""? 'незнакомец' : returnText;
- 
+    refs.nameSpan.textContent = (valueInput === "" ) ? 'незнакомец' : valueInput;
+
 }
